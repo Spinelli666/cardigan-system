@@ -48,21 +48,42 @@
       </div>
 
       <div class='resource flex-group-center'>
-        <label for='system.power.value' class='resource-label'>
-          {{localize 'CARDIGAN.Actor.base.FIELDS.power.value.label'}}
+        <label for='system.energy.value' class='resource-label'>
+          {{localize 'CARDIGAN.Actor.base.FIELDS.energy.value.label'}}
         </label>
         <div class='resource-content flexrow flex-center flex-between'>
           <input
             type='text'
-            name='system.power.value'
-            value='{{system.power.value}}'
+            name='system.energy.value'
+            value='{{system.energy.value}}'
             data-dtype='Number'
           />
           <span> / </span>
           <input
             type='text'
-            name='system.power.max'
-            value='{{system.power.max}}'
+            name='system.energy.max'
+            value='{{system.energy.max}}'
+            data-dtype='Number'
+          />
+        </div>
+      </div>
+
+      <div class='resource flex-group-center'>
+        <label for='system.armor.value' class='resource-label'>
+          {{localize 'CARDIGAN.Actor.base.FIELDS.armor.value.label'}}
+        </label>
+        <div class='resource-content flexrow flex-center flex-between'>
+          <input
+            type='text'
+            name='system.armor.value'
+            value='{{system.armor.value}}'
+            data-dtype='Number'
+          />
+          <span> / </span>
+          <input
+            type='text'
+            name='system.armor.max'
+            value='{{system.armor.max}}'
             data-dtype='Number'
           />
         </div>

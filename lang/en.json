@@ -14,7 +14,6 @@
     },
     "Actor": {
       "Tabs": {
-        "Biography": "Biography",
         "Features": "Features",
         "Gear": "Gear",
         "Spells": "Spells",
@@ -22,14 +21,17 @@
       },
       "base": {
         "FIELDS": {
-          "biography": {"label": "Biography"},
           "health": {
-            "value": {"label": "Health"},
-            "max": {"label": "Maximum Health"}
+            "value": {"label": "Vida"},
+            "max": {"label": "Maximum Vida"}
           },
-          "power": {
-            "value": {"label": "Power"},
-            "max": {"label": "Maximum Power"}
+          "energy": {
+            "value": {"label": "Energia"},
+            "max": {"label": "Maximum Energia"}
+          },
+          "armor": {
+            "value": {"label": "Armadura"},
+            "max": {"label": "Maximum Armadura"}
           }
         }
       },

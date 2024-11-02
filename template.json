@@ -1,20 +1,23 @@
 {
   "Actor": {
     "types": ["character", "npc"],
-    "htmlFields": ["biography"],
     "templates": {
       "base": {
         "health": {
-          "value": 10,
+          "value": 0,
           "min": 0,
-          "max": 10
+          "max": 0
         },
-        "power": {
-          "value": 5,
+        "energy": {
+          "value": 0,
           "min": 0,
-          "max": 5
+          "max": 0
         },
-        "biography": ""
+        "armor": {
+          "value": 0,
+          "min": 0,
+          "max": 0
+        }
       }
     },
     "character": {

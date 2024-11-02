@@ -252,12 +252,6 @@
 .cardigan .sheet-body .tab .editor {
   height: 100%;
 }
-.cardigan .tab.biography {
-  flex: 1;
-}
-.cardigan .tab.biography .editor {
-  height: 100%;
-}
 .cardigan .tox .tox-editor-container {
   background: var(--cardigan-c-white);
 }
@@ -464,6 +458,7 @@
   border: 2px groove var(--cardigan-c-groove);
   font-weight: bold;
 }
+
 .cardigan .effects-list .effects-header > * {
   font-size: 12px;
   text-align: center;

@@ -48,9 +48,6 @@ export class CardiganActorSheet extends api.HandlebarsApplicationMixin(
     features: {
       template: 'systems/cardigan/templates/actor/features.hbs',
     },
-    biography: {
-      template: 'systems/cardigan/templates/actor/biography.hbs',
-    },
     gear: {
       template: 'systems/cardigan/templates/actor/gear.hbs',
     },
@@ -66,7 +63,7 @@ export class CardiganActorSheet extends api.HandlebarsApplicationMixin(
   _configureRenderOptions(options) {
     super._configureRenderOptions(options);
     // Not all parts always render
-    options.parts = ['header', 'tabs', 'biography'];
+    options.parts = ['header', 'tabs'];
     // Don't show the other tabs if only limited view
     if (this.document.limited) return;
     // Control which parts show based on document subtype
@@ -117,22 +114,6 @@ export class CardiganActorSheet extends api.HandlebarsApplicationMixin(
       case 'gear':
         context.tab = context.tabs[partId];
         break;
-      case 'biography':
-        context.tab = context.tabs[partId];
-        // Enrich biography info for display
-        // Enrichment turns text like `[[/r 1d20]]` into buttons
-        context.enrichedBiography = await TextEditor.enrichHTML(
-          this.actor.system.biography,
-          {
-            // Whether to show secret blocks in the finished html
-            secrets: this.document.isOwner,
-            // Data to fill in for inline rolls
-            rollData: this.actor.getRollData(),
-            // Relative UUID resolution
-            relativeTo: this.actor,
-          }
-        );
-        break;
       case 'effects':
         context.tab = context.tabs[partId];
         // Prepare active effects
@@ -155,8 +136,6 @@ export class CardiganActorSheet extends api.HandlebarsApplicationMixin(
   _getTabs(parts) {
     // If you have sub-tabs this is necessary to change
     const tabGroup = 'primary';
-    // Default tab for first time it's rendered this session
-    if (!this.tabGroups[tabGroup]) this.tabGroups[tabGroup] = 'biography';
     return parts.reduce((tabs, partId) => {
       const tab = {
         cssClass: '',
@@ -172,10 +151,6 @@ export class CardiganActorSheet extends api.HandlebarsApplicationMixin(
         case 'header':
         case 'tabs':
           return tabs;
-        case 'biography':
-          tab.id = 'biography';
-          tab.label += 'Biography';
-          break;
         case 'features':
           tab.id = 'features';
           tab.label += 'Features';
